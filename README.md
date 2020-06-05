@@ -41,3 +41,25 @@ The Second Language:
     input: caa
     output:
     String 'caa' is not accepted by this language!
+
+The Third Language:
+    
+    input: aca
+    output:
+    String 'aca' is accepted by this language and the transitions are:
+    -> (q0 ['$']) => (q0 ['$', '0']) => (q1 ['$', '0']) => (q1 ['$']) => (q2 ['$'])
+    
+    input: aa
+    output:
+    String 'aa' is not accepted by this language!
+
+The Fourth Language:
+    
+    input: abba
+    output:
+    String 'abba' is accepted by this language and the transitions are:
+    -> (q0 ['$']) => (q1 ['$', '0']) => (q2 ['$']) => (q3 ['$', '1']) => (q4 ['$']) => (q5 ['$'])
+    
+    input: cca
+    output:
+    String 'cca' is not accepted by this language!
