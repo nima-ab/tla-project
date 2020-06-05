@@ -1,4 +1,4 @@
-from pda.npda import NPDA
+from npda import NPDA
 
 
 pda = NPDA(

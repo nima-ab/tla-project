@@ -34,7 +34,7 @@ class NPDA:
 
         return new_state, next_state
 
-        def read_input_str(self, input_str):
+    def read_input_str(self, input_str):
         current_state = self.init_state
         current_stack = [self.init_stack_symbol]
         current_config = PDAConfig(current_state, current_stack)
@@ -55,9 +55,10 @@ class NPDA:
 
         except Exception as e:
             last_state = current_config
+
             return states, last_state
 
-        def accepts_input_str(self, input_str):
+    def accepts_input_str(self, input_str):
         states, last_state = self.read_input_str(input_str=input_str)
         state, stack = last_state
 
