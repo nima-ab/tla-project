@@ -34,6 +34,29 @@ class NPDA:
 
         return new_state, next_state
 
+        def read_input_str(self, input_str):
+        current_state = self.init_state
+        current_stack = [self.init_stack_symbol]
+        current_config = PDAConfig(current_state, current_stack)
+        states = [current_config]
+
+        try:
+            for char in input_str:
+                transition = self._get_transition(current_state=current_state, input_symbol=char, stack_symbol=current_config.stack[-1])
+                current_config, current_state = self._get_next_config(transition=transition, old_config=current_config)
+                states.append(current_config)
+
+            transition = self._get_transition(current_state=current_state, input_symbol='', stack_symbol='$')
+            current_config, current_state = self._get_next_config(transition=transition, old_config=current_config)
+            states.append(current_config)
+            last_state = current_config
+
+            return states, last_state
+
+        except Exception as e:
+            last_state = current_config
+            return states, last_state
+
 
 class PDAConfig(
     namedtuple(
