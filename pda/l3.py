@@ -1,7 +1,7 @@
-from npda import NPDA
+from pda import PDA
 
 
-pda = NPDA(
+pda = PDA(
     states={'q0', 'q1', 'q2'},
     input_symbols={'a', 'b', 'c'},
     stack_symbols={'$', '0', '1'},

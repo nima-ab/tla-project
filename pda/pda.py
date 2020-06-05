@@ -2,7 +2,7 @@ from copy import copy
 from collections import namedtuple
 
 
-class NPDA:
+class PDA:
     def __init__(self, states, input_symbols, stack_symbols, init_state, init_stack_symbol, transitions, final_states):
         self.states = states
         self.input_symbols = input_symbols
