@@ -39,3 +39,20 @@ pda = NPDA(
     init_stack_symbol='$',
     final_states={'q2'}
 )
+
+input_string = input('Enter the string you wanna check: ')
+print('===============================')
+
+if pda.accepts_input_str(input_string):
+    print(f'String \'{input_string}\' is accepted by this language and the transitions are:')
+    visited_states, _ = pda.read_input_str(input_string)
+
+    print(' -> ', end='')
+    for i in range(len(visited_states)):
+        print(visited_states[i], end='')
+
+        if i != len(visited_states) - 1:
+            print(' => ', end='')
+
+else:
+    print(f'String \'{input_string}\' is not accepted by this language!')
