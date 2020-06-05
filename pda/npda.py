@@ -19,6 +19,21 @@ class NPDA:
 
             return self.transitions[current_state][stack_symbol][input_symbol]
 
+    def _get_next_config(self, transition, old_config):
+        next_state, pop_push_symbols = transition
+        pop_symbol, push_symbol = pop_push_symbols
+        new_stack = old_config.stack.copy()
+        
+        if pop_symbol is not None and new_stack[-1] == pop_symbol:
+            new_stack.pop()
+
+        if push_symbol is not None:
+            new_stack.append(push_symbol)
+
+        new_state = PDAConfig(next_state, new_stack)
+
+        return new_state, next_state
+
 
 class PDAConfig(
     namedtuple(
