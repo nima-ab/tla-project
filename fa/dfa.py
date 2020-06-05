@@ -11,3 +11,13 @@ class DFA:  # TODO add description to the readme.md file and comment the damn co
             return self.transitions[current_state][input_symbol]
         else:
             raise Exception('Invalid Symbol!')
+
+    def read_input_str(self, input_str):
+        current_state = self.init_state
+        visited_states = [current_state]
+
+        for char in input_str: 
+            current_state = self._get_next_state(current_state=current_state, input_symbol=char)
+            visited_states.append(current_state)
+
+        return visited_states, current_state
