@@ -57,6 +57,16 @@ class NPDA:
             last_state = current_config
             return states, last_state
 
+        def accepts_input_str(self, input_str):
+        states, last_state = self.read_input_str(input_str=input_str)
+        state, stack = last_state
+
+        if state in self.final_states and stack == ['$']:
+            return True
+
+        else:
+            return False
+
 
 class PDAConfig(
     namedtuple(
