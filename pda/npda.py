@@ -12,6 +12,13 @@ class NPDA:
         self.transitions = transitions
         self.final_states = final_states
 
+    def _get_transition(self, current_state, input_symbol, stack_symbol):
+        if (current_state in self.transitions and
+                stack_symbol in self.transitions[current_state] and
+                input_symbol in self.transitions[current_state][stack_symbol]):
+
+            return self.transitions[current_state][stack_symbol][input_symbol]
+
 
 class PDAConfig(
     namedtuple(
