@@ -14,7 +14,8 @@ Implementing different kinds of automatons(FA, PDA, TM) for 5 given languages.
 #### Fifth Language
     𝐿 = { 𝑤𝑤 | 𝑤 ε {𝑎,𝑏,𝑐}∗}
 
-#### For every language there's a l#.py file which you can run and test the automaton constructed for that language.
+### Description
+For every language there's a l#.py file which you can run and test the automaton constructed for that language.
 In each file you are asked to enter an arbitrary string. 
 If the string you've entered is accepted by the automaton it will show you the transitions.
 

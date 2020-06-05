@@ -1,13 +1,12 @@
 class DFA:
     def __init__(self, states, input_symbols, transitions, init_state, final_states):
         """ 
-        :param states: A `set` of the DFA's states' names which are strings.
+        :param states: A `set` of the DFA states' names which are strings.
         :param input_symbols: A `set` of valid alphabets.
-        :param transitions: A `dictionary` consisting of the transitions for each state. Each
-        key is a state name and each value is a `dictionary` which maps a symbol (the key) to
-        a state (the value).
+        :param transitions: A `dictionary` consisting of the transitions for each state.
+        The format is { start state: { input symbol: next state } }
         :param init_state: A string for the name of the initial state.
-        :param final_states: A `set` of the DFA's final states.
+        :param final_states: A `set` of the DFA final states.
         """
         self.states = states
         self.input_symbols = input_symbols
@@ -17,7 +16,7 @@ class DFA:
 
     def _get_next_state(self, current_state, input_symbol):
         """
-        :param current_state: The name of the DFA's current state.
+        :param current_state: The name of the DFA current state.
         :param input_symbol: The alphabet that maps the current state to the next.
         :return: next state
         """
