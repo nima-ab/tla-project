@@ -21,3 +21,12 @@ class DFA:  # TODO add description to the readme.md file and comment the damn co
             visited_states.append(current_state)
 
         return visited_states, current_state
+
+    def accept_input_str(self, input_str):
+        visited_states, last_state = self.read_input_str(input_str=input_str)
+
+        if last_state in self.final_states:
+            return True
+
+        else:
+            return False
