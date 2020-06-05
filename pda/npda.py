@@ -11,3 +11,13 @@ class NPDA:
         self.init_stack_symbol = init_stack_symbol
         self.transitions = transitions
         self.final_states = final_states
+
+
+class PDAConfig(
+    namedtuple(
+        'PDAConfig',
+        ['state', 'stack']
+)):
+
+    def __str__(self):
+        return f'({self.state} {self.stack})'
