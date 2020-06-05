@@ -1,4 +1,4 @@
-class DFA:  # TODO add description to the readme.md file and comment the damn code
+class DFA:
     def __init__(self, states, input_symbols, transitions, init_state, final_states):
         """ 
         :param states: A `set` of the DFA's states' names which are strings.
