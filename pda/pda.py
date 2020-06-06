@@ -3,13 +3,12 @@ from collections import namedtuple
 
 
 class PDA:
-    def __init__(self, states, input_symbols, stack_symbols, init_state, init_stack_symbol, transitions, final_states):
+    def __init__(self, states, input_symbols, stack_symbols, init_state, transitions, final_states):
         """
         :param states: A `set` of the PDA states' names which are strings.
         :param input_symbols: A `set` of valid alphabets.
         :param stack_symbols: A `set` of valid symbols for PDA stack.
         :param init_state: A string for the name of the initial state.
-        :param init_stack_symbol: A string for the first item in the PDA stack.
         :param transitions: A `dictionary` consisting of the transitions for each state.
         The Format is { start state: { stack top symbol: { input symbol: ( next state, (pop symbol, push symbol ) ) } } }.
         :param final_states: A `set` of the PDA final states.
@@ -18,16 +17,17 @@ class PDA:
         self.input_symbols = input_symbols
         self.stack_symbols = stack_symbols
         self.init_state = init_state
-        self.init_stack_symbol = init_stack_symbol
         self.transitions = transitions
         self.final_states = final_states
 
     def _get_transition(self, current_state, input_symbol, stack_symbol):
         """
+        Goes through the PDA transition `dictionary` and if the particular transition
+        is valid and exists it will return the transition
         :param current_state: The name of the PDA current state.
         :param input_symbol: The alphabet that maps the current state to the next.
         :param stack_symbol: The stack symbol that is supposed to be on top of the stack.
-        :return: The transition tha matches the given parameter which contains
+        :return: The transition that matches the given parameter which contains
         the next state and the pop and push stack symbol.
         """
         if (current_state in self.transitions and
@@ -38,6 +38,8 @@ class PDA:
 
     def _get_next_config(self, transition, old_config):
         """
+        With the transition and the current state PDA is in, it moves on to the next state and modifies
+        the stack if necessary.
         :param transition: A `tuple` which contains the next state and the pop and push symbol.
         :param old_config: A `PDAConfig` that is contains the current state and PDA stack in that state.
         :return: The next state's config and its name.
@@ -58,18 +60,21 @@ class PDA:
 
     def read_input_str(self, input_str):
         """
-        Reads the input string step by step.
+        Reads the input string character by character. For every character, it gets the transition
+        and with the transition it gets the next state and changes the stack and saves the next state and
+        the stack in a new config and adds it to the states `list`.
         :param input_str:  A string given by the user to be checked by the PDA.
         :return:  A list of the states as PDAConfigs which have been visited in every step.
         """
         current_state = self.init_state
-        current_stack = [self.init_stack_symbol]
+        current_stack = ['$']
         current_config = PDAConfig(current_state, current_stack)
         states = [current_config]
 
         try:
             for char in input_str:
-                transition = self._get_transition(current_state=current_state, input_symbol=char, stack_symbol=current_config.stack[-1])
+                transition = self._get_transition(current_state=current_state, input_symbol=char,
+                                                  stack_symbol=current_config.stack[-1])
                 current_config, current_state = self._get_next_config(transition=transition, old_config=current_config)
                 states.append(current_config)
 

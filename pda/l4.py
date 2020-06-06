@@ -31,7 +31,6 @@ pda = PDA(
         },
     },
     init_state='q0',
-    init_stack_symbol='$',
     final_states={'q5'}
 )
 
