@@ -20,6 +20,7 @@ In each file you are asked to enter an arbitrary string.
 If the string you've entered is accepted by the automaton it will show you the transitions.
 
 ###Examples
+
 The First Language:
     
     input: abba
