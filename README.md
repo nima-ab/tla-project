@@ -1,6 +1,7 @@
 # TLA Project
 Implementing different kinds of automatons(FA, PDA, TM) for 5 given languages.
-
+The code is commented and there is a description down below for how to test the languages.
+For every method, there is a brief description about how it works and the parameters and what it returns.
 
 ## Languages
 #### First Language
