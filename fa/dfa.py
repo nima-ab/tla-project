@@ -16,6 +16,8 @@ class DFA:
 
     def _get_next_state(self, current_state, input_symbol):
         """
+        Goes through the DFA transitions and returns the next state
+        if the transition is valid.
         :param current_state: The name of the DFA current state.
         :param input_symbol: The alphabet that maps the current state to the next.
         :return: next state
@@ -27,7 +29,8 @@ class DFA:
 
     def read_input_str(self, input_str):
         """
-        Reads the input string step by step.
+        Reads the input string character by character, For every character, it gets the transition
+        and with the transition it gets the next state and adds it the states `list`.
         :param input_str: A string given by the user to be checked by the DFA.
         :return: A list of the states which have been visited in every step.
         """
@@ -42,6 +45,7 @@ class DFA:
 
     def accept_input_str(self, input_str):
         """
+        Checks if the DFA last state is in the final states.
         :param input_str: A string given by the user to be checked by the DFA.
         :return: Whether a string is accepted by the DFA or not.
         """
