@@ -5,12 +5,16 @@ Implementing different kinds of automatons(FA, PDA, TM) for 5 given languages.
 ## Languages
 #### First Language
     𝐿 = {𝑤 | 𝑤 ε {𝑎,𝑏,𝑐}∗, len(w) % 2 == 0}
+![](automatons/L1.png)
 #### Second Language
     𝐿 = {𝑤 | 𝑤 ε {𝑎,𝑏,𝑐}∗, (𝑛𝑎(𝑤)− 𝑛𝑏(𝑤) % 3 == 1}
+![](automatons/L2.png)
 #### Third Language
     𝐿 = {𝑤𝑐𝑤^𝑟 | 𝑤 ε {𝑎,𝑏}∗}
+![](automatons/L3.png)
 #### Fourth Language
     𝐿 = {𝑎^𝑛 𝑏^(𝑛+𝑚) 𝑎^𝑚 | 𝑚,𝑛 ≥ 1}
+![](automatons/L4.png)
 #### Fifth Language
     𝐿 = { 𝑤𝑤 | 𝑤 ε {𝑎,𝑏,𝑐}∗}
 
