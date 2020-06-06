@@ -1,4 +1,4 @@
-from pda import PDA
+from pda.pda import PDA
 
 
 pda = PDA(

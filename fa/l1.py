@@ -1,4 +1,4 @@
-from dfa import DFA
+from fa.dfa import DFA
 
 
 dfa = DFA(
