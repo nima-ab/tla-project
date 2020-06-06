@@ -92,6 +92,7 @@ class PDA:
 
     def accepts_input_str(self, input_str):
         """
+        Checks if the PDA last state is in the final states and if the last state's stack is [$].
         :param input_str: A string given by the user to be checked by the DFA.
         :return: Whether a string is accepted by the PDA or not.
         """
